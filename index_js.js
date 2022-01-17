@@ -14,7 +14,7 @@ const clearBtn = document.querySelector('.clear');
 const counterTask = document.querySelector('.counterTask');
 let time;
 let counter = '';
-const todos = [];
+
 
 function creatDataToday() {
 
@@ -39,30 +39,29 @@ dateToday.appendChild(MouthToday);
 
 return dateToday;
 }
-
 creatDataToday();
 
+let todos = [];
+
 todoInput.addEventListener('input',function() {
-          addBtn.className ='add-button';  
+        addBtn.className ='add-button';  
 });
 
 todoForm.addEventListener('submit', function(event) {
-    event.preventDefault();
-    addTodo(todoInput.value); 
-    addBtn.className ='opacity';
+  event.preventDefault();
+  addTodo(todoInput.value); 
+  addBtn.className ='opacity';
 });
 
 function addTodo(item) {
  
   if (item !== '') {
-
     const todo = {
       id: Date.now(),
       name: item,
       completed: false,
       date: time
     };
-
     todos.push(todo);
     addToLocalStorage(todos); 
     todoInput.value = '';
@@ -94,6 +93,7 @@ function renderTodos(todos) {
             <div class="data">${item.date}</div>
             <button class="delete-button button"></button>
         `;
+
         todoItemsList.append(li);
     });
 
@@ -102,7 +102,6 @@ function renderTodos(todos) {
 
 function addToLocalStorage(todos) {
   localStorage.setItem('todos', JSON.stringify(todos));
-
   counter = todos.length;
   renderTodos(todos);
   counterTask.innerText = `Tasks ${counter}`;
@@ -122,6 +121,7 @@ function getFromLocalStorage() {
 
 function toggle(id) {
   todos.forEach(function(item) {
+   
     if (item.id == id) {
       item.completed = !item.completed;
     }
@@ -132,7 +132,6 @@ function toggle(id) {
 
 
 function deleteTodo(id) {
- 
   todos = todos.filter(function(item) {
     return item.id != id;
   });
@@ -149,16 +148,13 @@ clearBtn.addEventListener('click', function (){
     counterTask.innerText = `Tasks ${counter}`;
 });
 
-
 getFromLocalStorage();
-
 
 todoItemsList.addEventListener('click', function(event) {
 
   if (event.target.type === 'checkbox') {
     toggle(event.target.parentElement.getAttribute('data-key'));
   }
-
   if (event.target.classList.contains('delete-button')) {
     deleteTodo(event.target.parentElement.getAttribute('data-key'));
   }
