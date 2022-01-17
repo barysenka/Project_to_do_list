@@ -1,0 +1,221 @@
+/* common styles */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  body {
+    width: 100%;
+    min-height: 100vh;
+    padding: 10px;
+    background: linear-gradient(to bottom, #68EACC 0%, #497BE8 100%);
+    font-family: sans-serif;
+  }
+ h1{
+    font-size: 2em;
+    padding-bottom: 20px;
+    color: #497be8;
+ }
+  ul {
+    list-style-type: none; 
+  }
+.counterTask{
+font-size: 0.9em;
+color: rgb(130 130 130);
+  }
+  .DayToday{
+    font-size: 1.2em;
+    padding: 10px 0;
+  }
+  .container {
+    background: #fff;
+    min-width: 400px;
+    width: fit-content;
+    margin: 120px auto;
+    padding: 25px;
+    border-radius: 5px;
+    box-shadow: 0px 10px 15px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+  }
+  .wrap{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 5px;
+    align-items: center;
+  }
+
+  .todo-form {
+    margin: 40px 0px;
+    padding: 10px 5px;
+    border-radius: 5px;
+    border: 1px solid #797979;
+    width: 100%;
+    display: flex;
+  }
+  .todo-input {
+    width: 250px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    padding: 10px;
+    margin-right: 10px;
+    font-size: 1rem;
+  }
+  label{
+    max-width: 250px;
+   overflow-x: hidden;
+  }
+  .button {
+    background-color:  #4d8be3;
+    color: #fff;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    padding: 7px;
+   
+    font-size: 1.2rem;
+    transition: 0.5s;
+  }
+  .button:hover {
+    cursor: pointer;
+    background-color: #2b4d7c;
+  } 
+  .opacity {
+    color: gray;
+    border: none;
+    outline: none;
+    font-size: 2rem;
+    transition: 0.5s;
+    padding: 0 10px;
+    background-color: #fffafa00;
+    opacity: 0;
+}
+  .add-button{
+    color: gray;
+    border: none;
+    outline: none;
+    font-size: 2rem;
+    transition: 0.5s;
+    padding: 0 10px;
+    background-color: #fffafa00;
+    opacity: 1;
+  }
+  .add-button:hover {
+    cursor: pointer;
+    color: rgb(29, 29, 29);
+  } 
+  .delete-button {
+    float: right;
+    margin-left: 10px;
+    background-image: url(./clear_white_24dp.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 30px;
+    height: 30px;
+  }
+
+
+  .todo-items {
+    width: 100%;
+    padding: 0 5px;
+  }
+
+  .item {
+    padding-top: 10px;
+    font-size: 1.1rem;
+  }
+  .item:first-child {
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+  }
+  .item:last-child {
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+  }
+
+  .checkbox {
+    margin-right: 10px;
+  }
+ 
+  .checked { 
+    text-decoration: line-through;
+  }
+
+ .data {
+    float: right;
+    color: rgb(130 130 130);
+    padding-left: 7px;
+    font-size: 0.7em;
+  }
+
+  .todo-item {
+    display: flex;
+    font-size: 1rem;
+    transition: all .2s;
+    -webkit-user-select: none;
+    user-select: none;
+    align-items: center;
+}
+
+.todo-item.completed * {
+    color: lightgray;
+}
+
+.todo-item .checkbox {
+    margin-right: .5rem;
+}
+
+.todo-item .title,
+.todo-item .textfield {
+    margin-right: auto;
+}
+
+.todo-item.completed .title {
+    text-decoration: line-through;
+}
+
+.todo-item.editing .title {
+    display: none;
+}
+
+.todo-item .textfield {
+    display: none;
+}
+
+.todo-item.editing .textfield {
+    display: block;
+}
+
+
+.custom-checkbox {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+  }
+.custom-checkbox+label {
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+  }
+  .custom-checkbox+label::before {
+    content: '';
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+    flex-grow: 0;
+    border: 1px solid #4d8be3;;
+    border-radius: 0.25em;
+    margin-right: 0.5em;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+.custom-checkbox:checked+label::before {
+    border-color: #4d8be3;;
+    background-color: #4d8be3;
+    background-image: url(./done_white_24dp.svg);
+  }
